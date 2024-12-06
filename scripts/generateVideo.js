@@ -55,8 +55,8 @@ async function main() {
     const videoPath = await generateVideo(0, audioPath);
 
     // // Upload to YouTube
-    // const videoId = await uploadToYoutube(videoPath, questions[cur]);
-    // console.log(`Uploaded video: https://youtu.be/${videoId}`);
+    const videoId = await uploadToYoutube(videoPath, questions[cur]);
+    console.log(`Uploaded video: https://youtu.be/${videoId}`);
 
     // Clean up frames
     cleanDirectory(FRAMES_DIR);
