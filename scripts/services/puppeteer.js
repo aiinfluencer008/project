@@ -13,7 +13,7 @@ export async function captureFrames() {
   
   const page = await browser.newPage();
   await page.setViewport({ width: 1080, height: 1920 }); // Vertical video for shorts
-  await page.goto('=https://project-4kk7.onrender.com' ,{ waitUntil: "domcontentloaded" });
+  await page.goto('http://localhost:5173' ,{ waitUntil: "domcontentloaded" });
   
   console.log('Capturing frames...');
   

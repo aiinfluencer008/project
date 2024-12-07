@@ -23,7 +23,7 @@ export const QuizOption: React.FC<QuizOptionProps> = ({
         ${showAnswer && !isCorrect ? 'opacity-50' : ''}
       `}
     >
-      <p className="text-3xl text-white flex items-center justify-between">
+      <p className="text-6xl text-white flex items-center justify-between">
         {option}
         {showAnswer && isCorrect && (
           <span className="text-3xl animate-bounce">✓</span>

@@ -12,7 +12,8 @@ export const QuizTemplate: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState({
     question: '',
     options: [],
-    answer: 0
+    answer: 0,
+    description:''
   });
 
   const handleTimeUp = useCallback(() => {
@@ -58,7 +59,7 @@ export const QuizTemplate: React.FC = () => {
       {!showAnswer && <Timer seconds={timer} />}
       {showAnswer && (
         <div className="mt-8 p-4 bg-yellow-100 rounded-lg shadow-md slide-in">
-          <p className="text-lg text-gray-800">{currentQuestion.options[currentQuestion.answer]}</p>
+          <p className="text-4xl text-gray-800">{currentQuestion.description}</p>
         </div>        
       )}
       <SocialButtons />
