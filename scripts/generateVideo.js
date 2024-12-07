@@ -69,11 +69,39 @@ async function main() {
   }
 }
 
+main();
+
+let isProcessing = false;
+
+async function main1() {
+  if (isProcessing) {
+    console.log("A process is already running. Skipping.");
+    return;
+  }
+
+  try {
+    isProcessing = true;
+    if (cur >= questions.length) {
+      console.log("All questions processed. Stopping.");
+      return;
+    }
+    main();
+  } catch (error) {
+    console.error("Processing error:", error);
+  } finally {
+    isProcessing = false;
+  }
+}
 
 
-setInterval(() => {
-  console.log("Running task...");
-  main();
-}, 1 * 60 * 1000);
+const intervalId = setInterval(main1, 5*5 * 60 * 1000);
 
-export default  main;
+
+process.on('SIGINT', () => {
+  clearInterval(intervalId);
+  console.log("Process terminated");
+  process.exit();
+});
+
+
+export default  main1;
